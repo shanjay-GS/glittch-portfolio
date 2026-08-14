@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Amber Bean — Coffeehouse (Concept by GLITTCH)</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:#f7f1e6; color:#3a2c22; }
+  .demo-banner { font-family:'Segoe UI', system-ui, sans-serif; background:#5c3a21; color:#f3e6d3; text-align:center; font-size:12.5px; padding:9px; }
+  .demo-banner a { color:#f3e6d3; font-weight:700; text-decoration:underline; }
+  .wrap { max-width: 1100px; margin:0 auto; padding: 0 24px; }
+  a { color:inherit; }
+
+  nav { display:flex; justify-content:space-between; align-items:center; padding:24px 0; border-bottom:1px solid #e2d4bc; }
+  .logo { font-size:22px; font-weight:700; letter-spacing:0.5px; text-decoration:none; color:#5c3a21; }
+  .logo span { color:#a9762f; }
+  nav ul { display:flex; gap:30px; list-style:none; font-family:'Segoe UI', system-ui, sans-serif; }
+  nav a.nlink { text-decoration:none; color:#5c3a21; font-size:13.5px; letter-spacing:0.3px; }
+  .nav-cta { font-family:'Segoe UI', system-ui, sans-serif; background:#5c3a21; color:#f3e6d3; padding:10px 22px; border-radius:4px; font-size:13px; text-decoration:none; letter-spacing:0.3px; }
+
+  .hero { text-align:center; padding: 70px 0 20px; position:relative; }
+  .hero .rule { width:60px; height:2px; background:#a9762f; margin:0 auto 22px; }
+  .eyebrow { font-family:'Segoe UI', system-ui, sans-serif; letter-spacing:3px; text-transform:uppercase; font-size:12px; color:#a9762f; margin-bottom:18px; font-weight:600; }
+  .hero h1 { font-size:52px; font-weight:400; line-height:1.2; margin-bottom:20px; }
+  .hero h1 i { font-style:italic; color:#a9762f; }
+  .hero p { font-family:'Segoe UI', system-ui, sans-serif; font-size:15.5px; color:#6b5644; max-width:520px; margin:0 auto 32px; line-height:1.7; }
+  .hero-btns { display:flex; gap:14px; justify-content:center; margin-bottom:50px; }
+  .btn-brown { font-family:'Segoe UI', system-ui, sans-serif; background:#5c3a21; color:#f3e6d3; padding:14px 28px; border-radius:4px; font-weight:700; font-size:14px; text-decoration:none; }
+  .btn-outline { font-family:'Segoe UI', system-ui, sans-serif; border:1px solid #5c3a21; color:#5c3a21; padding:14px 28px; border-radius:4px; font-weight:700; font-size:14px; text-decoration:none; }
+
+  .hero-strip { height:230px; border-radius:6px; background: repeating-linear-gradient(120deg, #d9c19b 0 40px, #cbaf80 40px 80px); display:flex; align-items:center; justify-content:center; font-size:56px; margin-bottom:70px; border: 1px solid #e2d4bc; }
+
+  section { padding-bottom: 80px; }
+  .sec-tag { font-family:'Segoe UI', system-ui, sans-serif; text-align:center; letter-spacing:3px; text-transform:uppercase; font-size:11.5px; color:#a9762f; margin-bottom:14px; font-weight:700; }
+  h2.sec-title { text-align:center; font-size:34px; font-weight:400; margin-bottom:14px; }
+  .sec-sub { font-family:'Segoe UI', system-ui, sans-serif; text-align:center; color:#6b5644; max-width:520px; margin:0 auto 46px; font-size:14.5px; line-height:1.65; }
+
+  .about-grid { display:grid; grid-template-columns: 0.9fr 1.1fr; gap:50px; align-items:center; }
+  .about-visual { height:280px; border-radius:6px; background: linear-gradient(160deg,#cbaf80,#a9762f); display:flex; align-items:center; justify-content:center; font-size:60px; border:1px solid #e2d4bc; }
+  .about-grid p { font-family:'Segoe UI', system-ui, sans-serif; font-size:14.5px; color:#6b5644; line-height:1.75; margin-bottom:14px; }
+
+  .menu-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 46px; }
+  .menu-col h3 { font-size:20px; font-weight:400; margin-bottom:18px; color:#5c3a21; border-bottom: 1px solid #e2d4bc; padding-bottom:10px; }
+  .menu-row { display:flex; justify-content:space-between; align-items:baseline; padding:12px 0; font-family:'Segoe UI', system-ui, sans-serif; }
+  .menu-row .name { font-size:14.5px; color:#3a2c22; font-weight:600; }
+  .menu-row .desc { font-size:12px; color:#8a7a67; display:block; margin-top:2px; font-family: Georgia, serif; font-style: italic; }
+  .menu-row .price { font-size:14px; color:#a9762f; font-weight:700; white-space:nowrap; margin-left:14px; }
+
+  .hours-band { background:#5c3a21; color:#f3e6d3; border-radius:12px; padding:50px 40px; display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:center; }
+  .hours-band h2 { font-size:26px; font-weight:400; margin-bottom:16px; }
+  .hours-band .row { display:flex; justify-content:space-between; font-family:'Segoe UI', system-ui, sans-serif; font-size:14px; padding:9px 0; border-bottom: 1px solid rgba(243,230,211,0.2); }
+  .hours-band .info p { font-family:'Segoe UI', system-ui, sans-serif; font-size:13.5px; line-height:1.8; opacity:0.9; }
+  .hours-band .info b { display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; opacity:0.7; margin-top:14px; margin-bottom:4px; }
+
+  footer { font-family:'Segoe UI', system-ui, sans-serif; text-align:center; padding: 30px 0 24px; font-size:12.5px; color:#8a7a67; border-top:1px solid #e2d4bc; }
+  footer a { color:#a9762f; text-decoration:none; font-weight:700; }
+
+  @media (max-width: 900px) {
+    .about-grid, .menu-grid, .hours-band { grid-template-columns: 1fr; }
+    nav ul { display:none; }
+    .hero h1 { font-size:34px; }
+  }
+</style>
+</head>
+<body>
+<div class="demo-banner">Concept build by GLITTCH — a sample cafe site, not a real business. <a href="portfolio.html">← Back to GLITTCH</a></div>
+<div class="wrap">
+  <nav>
+    <a href="#" class="logo">The Amber <span>Bean</span></a>
+    <ul>
+      <li><a class="nlink" href="#">Home</a></li>
+      <li><a class="nlink" href="#">Menu</a></li>
+      <li><a class="nlink" href="#">About</a></li>
+      <li><a class="nlink" href="#">Visit</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Reserve a Table</a>
+  </nav>
+
+  <section class="hero">
+    <div class="rule"></div>
+    <div class="eyebrow">Est. Coffeehouse & Bakery</div>
+    <h1>Good Coffee, <i>Slowly Made</i></h1>
+    <p>A quiet corner cafe serving hand-brewed coffee, fresh pastries, and all-day breakfast in a warm, unhurried space.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-brown">View Our Menu</a>
+      <a href="#" class="btn-outline">Reserve a Table</a>
+    </div>
+    <div class="hero-strip">☕</div>
+  </section>
+
+  <section>
+    <div class="sec-tag">Our Story</div>
+    <h2 class="sec-title">A Neighborhood Ritual</h2>
+    <div class="about-grid">
+      <div class="about-visual">🥐</div>
+      <div>
+        <p>The Amber Bean started as a single roaster and a handful of tables — a place to slow down before the day picks up speed.</p>
+        <p>Every cup is brewed to order, every pastry baked that morning, and every table is yours for as long as you'd like it.</p>
+        <p>No rush, no rewards app, no shouting your name across the room. Just good coffee, made properly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-tag">On The Menu</div>
+    <h2 class="sec-title">Coffee & Kitchen</h2>
+    <p class="sec-sub">A short menu, done well — updated seasonally with what's fresh.</p>
+    <div class="menu-grid">
+      <div class="menu-col">
+        <h3>Coffee</h3>
+        <div class="menu-row"><span class="name">Pour Over<span class="desc">single-origin, brewed to order</span></span><span class="price">$5.50</span></div>
+        <div class="menu-row"><span class="name">Amber Latte<span class="desc">house espresso, oat or whole milk</span></span><span class="price">$4.75</span></div>
+        <div class="menu-row"><span class="name">Cold Brew<span class="desc">steeped 18 hours</span></span><span class="price">$5.00</span></div>
+        <div class="menu-row"><span class="name">Cortado<span class="desc">equal parts espresso & milk</span></span><span class="price">$4.25</span></div>
+      </div>
+      <div class="menu-col">
+        <h3>From The Kitchen</h3>
+        <div class="menu-row"><span class="name">Almond Croissant<span class="desc">baked fresh each morning</span></span><span class="price">$4.50</span></div>
+        <div class="menu-row"><span class="name">Avocado Toast<span class="desc">sourdough, chili oil, lemon</span></span><span class="price">$9.00</span></div>
+        <div class="menu-row"><span class="name">Seasonal Quiche<span class="desc">ask what's fresh today</span></span><span class="price">$8.50</span></div>
+        <div class="menu-row"><span class="name">Granola Bowl<span class="desc">yogurt, honey, seasonal fruit</span></span><span class="price">$7.50</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="hours-band">
+      <div>
+        <h2>Visit Us</h2>
+        <div class="row"><span>Monday – Friday</span><span>7:00 AM – 6:00 PM</span></div>
+        <div class="row"><span>Saturday – Sunday</span><span>8:00 AM – 5:00 PM</span></div>
+      </div>
+      <div class="info">
+        <b>Address</b>
+        <p>14 Wren Lane, Old Town</p>
+        <b>Phone</b>
+        <p>(555) 042-1187</p>
+        <b>Email</b>
+        <p>hello@amberbean.example</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>Concept site designed & built by <a href="portfolio.html">GLITTCH</a> — sample work, not a real cafe.</footer>
+</div>
+</body>
+</html>

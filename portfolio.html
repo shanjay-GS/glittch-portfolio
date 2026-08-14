@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLITTCH — Digital Growth Studio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #14081f 0%, #22103d 30%, #3b1668 60%, #5b1fa0 100%);
+    background-attachment: fixed;
+    color: #f3e8ff;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(216,180,254,0.20), transparent 40%),
+      radial-gradient(circle at 85% 25%, rgba(168,85,247,0.28), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(124,58,237,0.30), transparent 50%);
+    z-index: 0; pointer-events: none;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; }
+
+  /* NAV */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; position: sticky; top:0; z-index: 20; backdrop-filter: blur(14px); }
+  .logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; text-decoration:none; background: linear-gradient(90deg, #fff, #d8b4fe); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  nav ul { display: flex; gap: 30px; list-style: none; }
+  nav a.nlink { text-decoration: none; font-size: 14px; font-weight: 500; color: #e2cffb; opacity: 0.85; }
+  nav a.nlink:hover { opacity: 1; }
+  .nav-cta { background: linear-gradient(90deg, #a855f7, #7c3aed); padding: 10px 20px; border-radius: 999px; color: white; font-weight: 700; font-size: 13px; text-decoration:none; box-shadow: 0 4px 18px rgba(168,85,247,0.5); }
+
+  /* HERO */
+  .hero { text-align: center; padding: 90px 0 70px; }
+  .eyebrow { display:inline-block; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#d8b4fe; border:1px solid rgba(216,180,254,0.35); background:rgba(255,255,255,0.06); padding:8px 16px; border-radius:999px; margin-bottom:26px; }
+  .hero h1 { font-size: 62px; font-weight: 800; line-height: 1.1; margin-bottom: 22px; letter-spacing: -1px; }
+  .hero h1 .accent { background: linear-gradient(90deg,#d8b4fe,#a855f7,#f3e8ff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero p { font-size: 18px; color: #d0b6ef; max-width: 620px; margin: 0 auto 36px; line-height: 1.65; }
+  .hero-btns { display:flex; gap:16px; justify-content:center; }
+  .btn-primary { background: linear-gradient(90deg, #a855f7, #7c3aed); color: white; padding: 15px 30px; border-radius: 999px; font-weight: 700; font-size: 15px; box-shadow: 0 8px 28px rgba(168,85,247,0.55); border: none; cursor: pointer; text-decoration:none; display:inline-block; }
+  .btn-ghost { background: transparent; color: #f3e8ff; padding: 15px 30px; border-radius: 999px; font-weight: 700; font-size: 15px; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; text-decoration:none; display:inline-block; }
+
+  section { padding: 90px 0; }
+  .tag { text-align:center; font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:#d8b4fe; font-weight:700; margin-bottom:14px; }
+  h2.title { text-align:center; font-size:38px; font-weight:800; margin-bottom:18px; }
+  .sub { text-align:center; color:#c9b3e8; max-width:600px; margin:0 auto 54px; font-size:16px; line-height:1.65; }
+
+  /* ABOUT / DNA */
+  .about-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items:center; }
+  .about-grid p { color:#d0b6ef; font-size:15px; line-height:1.75; margin-bottom:16px; }
+  .stat-row { display:flex; gap:16px; margin-top: 30px; }
+  .stat { flex:1; background: rgba(255,255,255,0.07); border:1px solid rgba(216,180,254,0.25); border-radius:18px; padding:20px 14px; text-align:center; backdrop-filter: blur(12px); }
+  .stat .num { font-size:26px; font-weight:800; color:#f3e8ff; }
+  .stat .lbl { font-size:11.5px; color:#c9b3e8; margin-top:4px; }
+  .founder-card { background: rgba(255,255,255,0.07); border:1px solid rgba(216,180,254,0.25); border-radius:26px; padding:36px; backdrop-filter: blur(16px); }
+  .founder-card .quote-mark { font-size:44px; color:#a855f7; line-height:0.5; margin-bottom:14px; display:block; }
+  .founder-card p.q { font-size:16px; color:#e9d5ff; line-height:1.7; font-style: italic; margin-bottom:22px; }
+  .founder-card .who { font-size:13px; color:#c9b3e8; }
+  .founder-card .who b { color:#fff; display:block; font-size:14px; margin-bottom:2px; }
+
+  /* SERVICES */
+  .services-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:22px; }
+  .svc-card { background: rgba(255,255,255,0.06); border:1px solid rgba(216,180,254,0.22); border-radius:22px; padding:30px 24px; backdrop-filter: blur(14px); }
+  .svc-card .icon { width:52px; height:52px; border-radius:14px; background: linear-gradient(135deg,#a855f7,#6d28d9); display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:18px; box-shadow: 0 6px 18px rgba(168,85,247,0.45); }
+  .svc-card h3 { font-size:18px; color:#fff; margin-bottom:10px; }
+  .svc-card p { font-size:13.5px; color:#c9b3e8; line-height:1.6; }
+
+  /* WORK */
+  .work-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:24px; }
+  .work-card { background: rgba(255,255,255,0.06); border:1px solid rgba(216,180,254,0.22); border-radius:24px; overflow:hidden; backdrop-filter: blur(14px); transition: transform 0.2s, border-color 0.2s; }
+  .work-card:hover { transform: translateY(-4px); border-color: rgba(216,180,254,0.55); }
+  .work-thumb { height:190px; position:relative; display:flex; align-items:center; justify-content:center; font-weight:700; letter-spacing:1px; color:rgba(255,255,255,0.92); font-size:14px; }
+  .work-thumb::after { content:""; position:absolute; inset:0; background: repeating-linear-gradient(115deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 22px); }
+  .w1 { background: linear-gradient(135deg,#a855f7,#4c1d95); }
+  .w2 { background: linear-gradient(135deg,#c084fc,#6d28d9); }
+  .w3 { background: linear-gradient(135deg,#7c3aed,#2e1065); }
+  .w4 { background: linear-gradient(135deg,#9333ea,#3b0764); }
+  .work-body { padding:22px 24px; }
+  .work-cat { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#d8b4fe; font-weight:700; }
+  .work-body h4 { font-size:18px; color:#fff; margin:8px 0 8px; }
+  .work-body p { font-size:13.5px; color:#c9b3e8; line-height:1.6; margin-bottom:14px; }
+  .work-status { display:inline-block; font-size:11px; padding:5px 12px; border-radius:999px; background: rgba(216,180,254,0.15); border:1px solid rgba(216,180,254,0.3); color:#e9d5ff; }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; margin: 0 auto; display:flex; flex-direction:column; gap:14px; }
+  .faq-item { background: rgba(255,255,255,0.06); border:1px solid rgba(216,180,254,0.22); border-radius:18px; overflow:hidden; backdrop-filter: blur(12px); }
+  .faq-q { padding:20px 24px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-size:15px; font-weight:600; color:#f3e8ff; }
+  .faq-q .plus { font-size:20px; color:#d8b4fe; transition: transform 0.2s; }
+  .faq-item.open .plus { transform: rotate(45deg); }
+  .faq-a { max-height:0; overflow:hidden; transition: max-height 0.25s ease; }
+  .faq-a p { padding: 0 24px 20px; font-size:14px; color:#c9b3e8; line-height:1.6; }
+
+  /* CONTACT */
+  .contact-box { display:grid; grid-template-columns: 1fr 1.2fr; gap: 40px; background: rgba(255,255,255,0.06); border:1px solid rgba(216,180,254,0.25); border-radius: 30px; padding: 48px; backdrop-filter: blur(18px); }
+  .contact-box h2 { font-size:30px; font-weight:800; margin-bottom:14px; }
+  .contact-box .lead { color:#d0b6ef; font-size:15px; line-height:1.65; margin-bottom:26px; }
+  .contact-info-item { margin-bottom:18px; }
+  .contact-info-item .l { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#a98fd4; margin-bottom:4px; }
+  .contact-info-item .v { font-size:15px; color:#f3e8ff; font-weight:600; }
+  form { display:flex; flex-direction:column; gap:14px; }
+  form input, form select, form textarea {
+    background: rgba(0,0,0,0.2); border:1px solid rgba(216,180,254,0.3); border-radius:12px;
+    padding:14px 16px; color:#f3e8ff; font-size:14px; font-family:inherit;
+  }
+  form textarea { resize: vertical; min-height:90px; }
+  form ::placeholder { color:#b39fd6; }
+  form button { margin-top:6px; }
+
+  footer { padding: 50px 0 30px; text-align:center; color:#b89ed8; font-size:13px; }
+  footer .flogo { font-size:20px; font-weight:800; color:#f3e8ff; margin-bottom:10px; }
+
+  @media (max-width: 900px) {
+    .services-grid, .work-grid { grid-template-columns: 1fr; }
+    .about-grid, .contact-box { grid-template-columns: 1fr; }
+    nav ul { display:none; }
+    .hero h1 { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a href="#home" class="logo">GLITTCH</a>
+    <ul>
+      <li><a class="nlink" href="#home">Home</a></li>
+      <li><a class="nlink" href="#about">About</a></li>
+      <li><a class="nlink" href="#services">Services</a></li>
+      <li><a class="nlink" href="#work">Our Work</a></li>
+      <li><a class="nlink" href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get a Proposal</a>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="eyebrow">Digital Growth, Freshly Launched</div>
+    <h1>Build Your <span class="accent">Digital Presence</span><br>From The Ground Up</h1>
+    <p>GLITTCH is a freelance studio covering content, code, ads, design, and AI automation — one team handling every piece of your brand's digital growth.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Explore Services →</a>
+      <a href="#contact" class="btn-ghost">Let's Connect</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="tag">Our DNA</div>
+    <h2 class="title">We build digital engines,<br>not just deliverables.</h2>
+    <div class="about-grid">
+      <div>
+        <p>GLITTCH was started to give growing brands one direct team for everything digital — instead of juggling five different freelancers for content, code, ads, design, and automation.</p>
+        <p>We're new, and that's our edge: every early project gets full, hands-on attention from the people actually building it — no account managers, no hand-offs, no cutting corners.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="num">5</div><div class="lbl">Core Services</div></div>
+          <div class="stat"><div class="num">2026</div><div class="lbl">Founded</div></div>
+          <div class="stat"><div class="num">1:1</div><div class="lbl">Direct Access</div></div>
+        </div>
+      </div>
+      <div class="founder-card">
+        <span class="quote-mark">"</span>
+        <p class="q">We didn't want to be another cookie-cutter freelance page. GLITTCH exists to give brands one team that actually builds — content, code, ads, and automation, done properly from day one.</p>
+        <div class="who"><b>The GLITTCH Team</b>Founders</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="tag">Expertise</div>
+    <h2 class="title">What We Build</h2>
+    <p class="sub">Everything your brand needs to look sharp, run smoothly, and reach more people.</p>
+    <div class="services-grid">
+      <div class="svc-card"><div class="icon">🎬</div><h3>Content & Video Editing</h3><p>Scroll-stopping reels, brand videos, and edits engineered to hold attention and drive action.</p></div>
+      <div class="svc-card"><div class="icon">💻</div><h3>Full Stack Development</h3><p>Fast, secure, custom websites and web apps — engineered end-to-end, not templated.</p></div>
+      <div class="svc-card"><div class="icon">📈</div><h3>Meta Ads Strategy</h3><p>High-impact creatives, precise targeting, and scaling frameworks built to lower acquisition costs.</p></div>
+      <div class="svc-card"><div class="icon">🔍</div><h3>Google Ads Optimization</h3><p>Structured search & display campaigns built to capture active intent and rank for the terms that matter.</p></div>
+      <div class="svc-card"><div class="icon">🎨</div><h3>Posters & Graphic Design</h3><p>Bold, distinctive visuals and brand collateral that make your brand impossible to ignore.</p></div>
+      <div class="svc-card"><div class="icon">🤖</div><h3>AI Systems & Automation</h3><p>Custom AI agents, automated workflows, and API integrations that cut out the busywork.</p></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="tag">Sample Builds</div>
+    <h2 class="title">Concept Work</h2>
+    <p class="sub">As a new studio, these are concept builds showing our range — real client case studies will land here as projects launch.</p>
+    <div class="work-grid">
+      <a href="cafe.html" class="work-card" style="text-decoration:none; display:block;">
+        <div class="work-thumb w1">LAUNCH DEMO →</div>
+        <div class="work-body">
+          <div class="work-cat">Full Stack Development</div>
+          <h4>The Amber Bean — Coffeehouse</h4>
+          <p>A warm cafe website concept with a seasonal menu, neighborhood story, and visit hours.</p>
+          <span class="work-status">Concept build · click to open</span>
+        </div>
+      </a>
+      <a href="dental-clinic.html" class="work-card" style="text-decoration:none; display:block;">
+        <div class="work-thumb w2">LAUNCH DEMO →</div>
+        <div class="work-body">
+          <div class="work-cat">Full Stack Development</div>
+          <h4>Willow Dental — Clinic Website</h4>
+          <p>A bright, friendly dental clinic site with services, booking CTA, and clinic hours.</p>
+          <span class="work-status">Concept build · click to open</span>
+        </div>
+      </a>
+      <a href="lawyer.html" class="work-card" style="text-decoration:none; display:block;">
+        <div class="work-thumb w3">LAUNCH DEMO →</div>
+        <div class="work-body">
+          <div class="work-cat">Full Stack Development</div>
+          <h4>Marsh & Cole — Law Firm Website</h4>
+          <p>An elegant attorney portfolio site with practice areas, firm story, and consultation CTA.</p>
+          <span class="work-status">Concept build · click to open</span>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/glittch_clips?igsh=MTVpMGx2dWt0MjJ6aw==&igsi=MTVpMGx2dWt0MjJ6aw==" target="_blank" rel="noopener" class="work-card" style="text-decoration:none; display:block;">
+        <div class="work-thumb w4">▶ REEL CONCEPT</div>
+        <div class="work-body">
+          <div class="work-cat">Content & Video Editing</div>
+          <h4>Brand Reel Series Concept</h4>
+          <p>A short-form video concept built to show pacing, captions, and hook-driven editing style.</p>
+          <span class="work-status">Concept build · click to open</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="tag">FAQ Center</div>
+    <h2 class="title">Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What does the web development process look like?<span class="plus">+</span></div>
+        <div class="faq-a"><p>We start with a design stage, build using modern frameworks, integrate any database or API needs, and optimize before launch.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you structure Google and Meta ad budgets?<span class="plus">+</span></div>
+        <div class="faq-a"><p>We split spend into testing (finding winning creative and targeting) and scaling (optimizing what's working), with cost-per-lead and ROAS as the main measures.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What kind of AI tools do you build?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Custom chatbots, CRM and lead-routing automations, and API integrations connecting the tools you already use.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you work with brand-new businesses?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes — as a new studio ourselves, we're especially glad to work with early-stage brands and build alongside you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="tag">Let's Talk</div>
+    <h2 class="title">Let's build something worth showing off.</h2>
+    <div class="contact-box">
+      <div>
+        <h2>Tell us about your project</h2>
+        <p class="lead">Share your goals and we'll get back to you with next steps.</p>
+        <div class="contact-info-item"><div class="l">Direct Email</div><div class="v">glittchadmin@gmail.com</div></div>
+        <div class="contact-info-item"><div class="l">Response Time</div><div class="v">We aim to reply within 24 hours</div></div>
+      </div>
+      <form id="contact-form">
+        <input type="text" id="f-name" placeholder="Your Name" required>
+        <input type="email" id="f-email" placeholder="Your Email" required>
+        <select id="f-service">
+          <option>Select a service...</option>
+          <option>Content & Video Editing</option>
+          <option>Full Stack Development</option>
+          <option>Meta Ads Strategy</option>
+          <option>Google Ads Optimization</option>
+          <option>Posters & Graphic Design</option>
+          <option>AI Systems & Automation</option>
+          <option>Other</option>
+        </select>
+        <textarea id="f-message" placeholder="Tell us about your project" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+        <p id="form-status" style="font-size:13.5px; color:#4ade80;"></p>
+        <p id="form-version" style="font-size:12px; color:#b89ed8; margin-top:2px;">Form v2 · backend connected</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="flogo">GLITTCH</div>
+    <p>Content • Development • Ads • Design • AI Automation</p>
+    <p style="margin-top:14px;">© 2026 GLITTCH. All rights reserved.</p>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.parentElement;
+      var ans = item.querySelector('.faq-a');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el){
+        el.classList.remove('open');
+        el.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.textContent = 'Sending...';
+    status.style.color = '#d8b4fe';
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: document.getElementById('f-name').value,
+        email: document.getElementById('f-email').value,
+        service: document.getElementById('f-service').value,
+        message: document.getElementById('f-message').value
+      })
+    })
+    .then(function(r){ return r.json().then(function(d){ return { ok: r.ok, d: d }; }); })
+    .then(function(res){
+      if(res.ok){
+        status.textContent = 'Thanks! Your message was sent.';
+        status.style.color = '#4ade80';
+        alert('Thanks! Your message was sent and saved to the backend.');
+        form.reset();
+      } else {
+        status.textContent = res.d.error || 'Something went wrong. Try again.';
+        status.style.color = '#fca5a5';
+        alert('Server error: ' + (res.d.error || 'unknown'));
+      }
+    })
+    .catch(function(err){
+      status.textContent = 'Network error. Try again.';
+      status.style.color = '#fca5a5';
+      alert('Network error: ' + err.message);
+    });
+  });
+</script>
+</body>
+</html>

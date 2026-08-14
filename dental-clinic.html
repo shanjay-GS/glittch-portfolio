@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Willow Dental — Family Dentistry (Concept by GLITTCH)</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#fbfdfc; color:#0f2d28; }
+  .demo-banner { background:linear-gradient(90deg,#0d9488,#14b8a6); color:#fff; text-align:center; font-size:12.5px; padding:9px; }
+  .demo-banner a { color:#fff; font-weight:700; text-decoration:underline; }
+  .wrap { max-width: 1150px; margin:0 auto; padding: 0 24px; }
+  a { color:inherit; }
+
+  nav { display:flex; justify-content:space-between; align-items:center; padding:22px 0; }
+  .logo { font-size:21px; font-weight:800; color:#0d9488; text-decoration:none; }
+  nav ul { display:flex; gap:28px; list-style:none; }
+  nav a.nlink { text-decoration:none; color:#1f3b36; font-size:14px; font-weight:600; }
+  .nav-cta { background:#0d9488; color:#fff; padding:11px 22px; border-radius:999px; font-weight:700; font-size:13.5px; text-decoration:none; }
+
+  .hero { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items:center; padding: 50px 0 80px; }
+  .badge { display:inline-block; background:#ccfbf1; color:#0f766e; font-size:12px; font-weight:700; padding:7px 16px; border-radius:999px; margin-bottom:20px; }
+  .hero h1 { font-size:46px; font-weight:800; line-height:1.15; margin-bottom:18px; color:#0f2d28; }
+  .hero h1 span { color:#0d9488; }
+  .hero p { font-size:16px; color:#4b6b64; line-height:1.65; margin-bottom:28px; max-width: 460px; }
+  .hero-btns { display:flex; gap:14px; }
+  .btn-primary { background:#0d9488; color:#fff; padding:14px 26px; border-radius:999px; font-weight:700; font-size:14.5px; text-decoration:none; box-shadow: 0 8px 22px rgba(13,148,136,0.3); }
+  .btn-ghost { background:#fff; color:#0f2d28; padding:14px 26px; border-radius:999px; font-weight:700; font-size:14.5px; text-decoration:none; border:1px solid #d9ece8; }
+  .hero-visual { background: linear-gradient(135deg,#ccfbf1,#99f6e4); border-radius:28px; height: 340px; display:flex; align-items:center; justify-content:center; font-size:80px; }
+
+  .trust-row { display:flex; justify-content:space-around; padding: 26px 0; border-top:1px solid #e6f2ef; border-bottom:1px solid #e6f2ef; margin-bottom:80px; }
+  .trust-item { text-align:center; }
+  .trust-item .num { font-size:24px; font-weight:800; color:#0d9488; }
+  .trust-item .lbl { font-size:12px; color:#6b8983; margin-top:2px; }
+
+  section.services { padding-bottom:80px; }
+  .sec-tag { text-align:center; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#0d9488; font-weight:700; margin-bottom:12px; }
+  h2.sec-title { text-align:center; font-size:32px; font-weight:800; margin-bottom:14px; color:#0f2d28; }
+  .sec-sub { text-align:center; color:#5c7d76; max-width:520px; margin: 0 auto 46px; font-size:15px; line-height:1.6; }
+
+  .services-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:20px; }
+  .svc { background:#fff; border:1px solid #e6f2ef; border-radius:20px; padding:28px 22px; text-align:center; }
+  .svc .ic { font-size:32px; margin-bottom:14px; }
+  .svc h4 { font-size:15.5px; margin-bottom:8px; color:#0f2d28; }
+  .svc p { font-size:12.5px; color:#6b8983; line-height:1.5; }
+
+  .booking-band { background: linear-gradient(120deg,#0d9488,#14b8a6); border-radius:28px; padding:56px 40px; text-align:center; color:#fff; margin-bottom:80px; }
+  .booking-band h2 { font-size:28px; font-weight:800; margin-bottom:12px; }
+  .booking-band p { font-size:15px; opacity:0.9; margin-bottom:26px; }
+  .btn-white { background:#fff; color:#0d9488; padding:14px 30px; border-radius:999px; font-weight:700; font-size:14.5px; text-decoration:none; display:inline-block; }
+
+  .hours-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-bottom: 70px; align-items:center; }
+  .hours-list div.row { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #e6f2ef; font-size:14px; color:#33534c; }
+  .hours-list div.row b { color:#0f2d28; }
+  .contact-card { background:#f0faf8; border-radius:24px; padding:32px; }
+  .contact-card h3 { font-size:19px; margin-bottom:16px; color:#0f2d28; }
+  .contact-card .item { margin-bottom:14px; font-size:14px; color:#33534c; }
+  .contact-card .item b { display:block; color:#0f2d28; font-size:13px; }
+
+  footer { text-align:center; padding: 30px 0 24px; font-size:12.5px; color:#6b8983; border-top:1px solid #e6f2ef; }
+  footer a { color:#0d9488; text-decoration:none; font-weight:700; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .hours-grid { grid-template-columns: 1fr; }
+    nav ul { display:none; }
+    .hero h1 { font-size:32px; }
+  }
+</style>
+</head>
+<body>
+<div class="demo-banner">Concept build by GLITTCH — a sample dental clinic site, not a real clinic. <a href="portfolio.html">← Back to GLITTCH</a></div>
+<div class="wrap">
+  <nav>
+    <a href="#" class="logo">Willow Dental</a>
+    <ul>
+      <li><a class="nlink" href="#">Home</a></li>
+      <li><a class="nlink" href="#">Services</a></li>
+      <li><a class="nlink" href="#">About</a></li>
+      <li><a class="nlink" href="#">Contact</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Book Appointment</a>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <div class="badge">✦ New Patients Welcome</div>
+      <h1>Gentle Dental Care for <span>Your Whole Family</span></h1>
+      <p>Modern dentistry with a comfortable, friendly touch — from routine checkups to smile makeovers, all under one roof.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">Book an Appointment</a>
+        <a href="#" class="btn-ghost">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">🦷</div>
+  </section>
+
+  <div class="trust-row">
+    <div class="trust-item"><div class="num">15+</div><div class="lbl">Years Experience</div></div>
+    <div class="trust-item"><div class="num">6</div><div class="lbl">Dental Specialists</div></div>
+    <div class="trust-item"><div class="num">7-Day</div><div class="lbl">Clinic Hours</div></div>
+  </div>
+
+  <section class="services">
+    <div class="sec-tag">Our Services</div>
+    <h2 class="sec-title">Complete Dental Care</h2>
+    <p class="sec-sub">From prevention to restoration, our team covers every stage of your dental health.</p>
+    <div class="services-grid">
+      <div class="svc"><div class="ic">🪥</div><h4>General Checkups</h4><p>Routine exams & cleanings for all ages.</p></div>
+      <div class="svc"><div class="ic">😁</div><h4>Cosmetic Dentistry</h4><p>Whitening, veneers & smile design.</p></div>
+      <div class="svc"><div class="ic">🦷</div><h4>Orthodontics</h4><p>Braces & clear aligners for straighter teeth.</p></div>
+      <div class="svc"><div class="ic">🚨</div><h4>Emergency Care</h4><p>Same-day appointments for urgent dental pain.</p></div>
+    </div>
+  </section>
+
+  <div class="booking-band">
+    <h2>Ready for a Healthier Smile?</h2>
+    <p>Book your visit online in under two minutes.</p>
+    <a href="#" class="btn-white">Book Now →</a>
+  </div>
+
+  <div class="hours-grid">
+    <div class="hours-list">
+      <h3 style="margin-bottom:16px; font-size:19px; color:#0f2d28;">Clinic Hours</h3>
+      <div class="row"><span>Monday – Friday</span><b>8:00 AM – 7:00 PM</b></div>
+      <div class="row"><span>Saturday</span><b>9:00 AM – 5:00 PM</b></div>
+      <div class="row"><span>Sunday</span><b>10:00 AM – 2:00 PM</b></div>
+    </div>
+    <div class="contact-card">
+      <h3>Visit Us</h3>
+      <div class="item"><b>Address</b>221 Maple Street, Suite 4</div>
+      <div class="item"><b>Phone</b>(555) 019-2244</div>
+      <div class="item"><b>Email</b>hello@willowdental.example</div>
+    </div>
+  </div>
+
+  <footer>Concept site designed & built by <a href="portfolio.html">GLITTCH</a> — sample work, not a real clinic.</footer>
+</div>
+</body>
+</html>

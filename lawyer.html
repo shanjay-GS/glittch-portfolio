@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marsh & Cole — Attorneys at Law (Concept by GLITTCH)</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:#0c1220; color:#e9e6dd; }
+  .demo-banner { font-family: 'Segoe UI', system-ui, sans-serif; background:linear-gradient(90deg,#8a6d1f,#b8942f); color:#1a1608; text-align:center; font-size:12.5px; padding:9px; font-weight:600; }
+  .demo-banner a { color:#1a1608; font-weight:800; text-decoration:underline; }
+  .wrap { max-width: 1120px; margin:0 auto; padding: 0 24px; }
+  a { color:inherit; }
+
+  nav { display:flex; justify-content:space-between; align-items:center; padding:26px 0; border-bottom: 1px solid rgba(184,148,47,0.25); }
+  .logo { font-size:20px; font-weight:700; letter-spacing:1px; text-decoration:none; color:#e9e6dd; }
+  .logo span { color:#c9a44c; }
+  nav ul { display:flex; gap:32px; list-style:none; font-family:'Segoe UI', system-ui, sans-serif; }
+  nav a.nlink { text-decoration:none; color:#c9c3b3; font-size:13.5px; letter-spacing:0.5px; }
+  .nav-cta { font-family:'Segoe UI', system-ui, sans-serif; border:1px solid #c9a44c; color:#c9a44c; padding:10px 22px; font-size:13px; text-decoration:none; letter-spacing:0.5px; }
+
+  .hero { text-align:center; padding: 90px 0 70px; }
+  .eyebrow { font-family:'Segoe UI', system-ui, sans-serif; letter-spacing:3px; text-transform:uppercase; font-size:12px; color:#c9a44c; margin-bottom:22px; }
+  .hero h1 { font-size:50px; font-weight:400; line-height:1.25; margin-bottom:22px; }
+  .hero h1 i { color:#c9a44c; font-style:italic; }
+  .hero p { font-family:'Segoe UI', system-ui, sans-serif; font-size:15.5px; color:#a9a396; max-width:560px; margin:0 auto 34px; line-height:1.7; }
+  .btn-gold { font-family:'Segoe UI', system-ui, sans-serif; background:#c9a44c; color:#181206; padding:15px 32px; font-weight:700; font-size:14px; text-decoration:none; letter-spacing:0.5px; }
+
+  .divider { text-align:center; color:#c9a44c; font-size:20px; margin: 10px 0 60px; letter-spacing:8px; }
+
+  section.practice { padding-bottom: 80px; }
+  .sec-tag { font-family:'Segoe UI', system-ui, sans-serif; text-align:center; letter-spacing:3px; text-transform:uppercase; font-size:11.5px; color:#c9a44c; margin-bottom:14px; }
+  h2.sec-title { text-align:center; font-size:32px; font-weight:400; margin-bottom:46px; }
+  .practice-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: rgba(184,148,47,0.2); border: 1px solid rgba(184,148,47,0.2); }
+  .practice-card { background:#0c1220; padding:36px 28px; }
+  .practice-card .num { font-family:'Segoe UI', system-ui, sans-serif; font-size:12px; color:#7d7868; letter-spacing:2px; margin-bottom:16px; }
+  .practice-card h3 { font-size:19px; font-weight:400; margin-bottom:12px; color:#e9e6dd; }
+  .practice-card p { font-family:'Segoe UI', system-ui, sans-serif; font-size:13px; color:#9c9688; line-height:1.65; }
+
+  .about-band { display:grid; grid-template-columns: 0.8fr 1.2fr; gap:50px; align-items:center; padding: 80px 0; border-top:1px solid rgba(184,148,47,0.2); border-bottom:1px solid rgba(184,148,47,0.2); margin-bottom:80px; }
+  .about-visual { height:280px; background: linear-gradient(160deg,#1a2338,#0c1220); border:1px solid rgba(184,148,47,0.3); display:flex; align-items:center; justify-content:center; font-size:60px; }
+  .about-band h2 { font-size:28px; font-weight:400; margin-bottom:18px; }
+  .about-band p { font-family:'Segoe UI', system-ui, sans-serif; font-size:14.5px; color:#a9a396; line-height:1.75; margin-bottom:14px; }
+
+  .stat-row { display:flex; gap:50px; margin-top:26px; font-family:'Segoe UI', system-ui, sans-serif; }
+  .stat .num { font-size:26px; color:#c9a44c; font-weight:700; }
+  .stat .lbl { font-size:12px; color:#8f897a; margin-top:4px; }
+
+  .cta-band { text-align:center; padding: 70px 40px; border:1px solid rgba(184,148,47,0.3); margin-bottom:70px; }
+  .cta-band h2 { font-size:28px; font-weight:400; margin-bottom:14px; }
+  .cta-band p { font-family:'Segoe UI', system-ui, sans-serif; color:#a9a396; margin-bottom:26px; font-size:14.5px; }
+
+  footer { font-family:'Segoe UI', system-ui, sans-serif; text-align:center; padding: 30px 0 24px; font-size:12.5px; color:#7d7868; border-top:1px solid rgba(184,148,47,0.2); }
+  footer a { color:#c9a44c; text-decoration:none; font-weight:700; }
+
+  @media (max-width: 900px) {
+    .practice-grid { grid-template-columns: 1fr; }
+    .about-band { grid-template-columns: 1fr; }
+    nav ul { display:none; }
+    .hero h1 { font-size:34px; }
+  }
+</style>
+</head>
+<body>
+<div class="demo-banner">Concept build by GLITTCH — a sample law firm site, not a real firm. <a href="portfolio.html">← Back to GLITTCH</a></div>
+<div class="wrap">
+  <nav>
+    <a href="#" class="logo">Marsh <span>&</span> Cole</a>
+    <ul>
+      <li><a class="nlink" href="#">Home</a></li>
+      <li><a class="nlink" href="#">Practice Areas</a></li>
+      <li><a class="nlink" href="#">About</a></li>
+      <li><a class="nlink" href="#">Contact</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Book Consultation</a>
+  </nav>
+
+  <section class="hero">
+    <div class="eyebrow">Attorneys at Law</div>
+    <h1>Trusted Counsel. <i>Proven Results.</i></h1>
+    <p>Marsh & Cole provides clear, strategic legal guidance for individuals and businesses navigating complex matters.</p>
+    <a href="#" class="btn-gold">Schedule a Consultation</a>
+  </section>
+
+  <div class="divider">⚖</div>
+
+  <section class="practice">
+    <div class="sec-tag">Practice Areas</div>
+    <h2 class="sec-title">Where We Practice</h2>
+    <div class="practice-grid">
+      <div class="practice-card"><div class="num">01</div><h3>Corporate Law</h3><p>Formation, contracts, and governance counsel for growing businesses.</p></div>
+      <div class="practice-card"><div class="num">02</div><h3>Real Estate</h3><p>Property transactions, leasing disputes, and settlement guidance.</p></div>
+      <div class="practice-card"><div class="num">03</div><h3>Employment Law</h3><p>Workplace disputes, contracts, and compliance advisory.</p></div>
+    </div>
+  </section>
+
+  <div class="about-band">
+    <div class="about-visual">⚖️</div>
+    <div>
+      <h2>A Firm Built on Trust</h2>
+      <p>Marsh & Cole was founded on the belief that legal counsel should be clear, direct, and genuinely on your side.</p>
+      <p>Every client works closely with the attorney handling their matter — no unnecessary layers, no confusion.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">3</div><div class="lbl">Practice Areas</div></div>
+        <div class="stat"><div class="num">1:1</div><div class="lbl">Client Access</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h2>Discuss Your Case</h2>
+    <p>Reach out for a confidential consultation.</p>
+    <a href="#" class="btn-gold">Contact the Firm</a>
+  </div>
+
+  <footer>Concept site designed & built by <a href="portfolio.html">GLITTCH</a> — sample work, not a real firm.</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — GLITTCH</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0b2e 0%, #2d1155 35%, #4c1d95 70%, #7c3aed 100%); background-attachment: fixed; color: #f3e8ff; overflow-x: hidden; }
+  body::before { content: ""; position: fixed; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(216,180,254,0.25), transparent 40%), radial-gradient(circle at 80% 30%, rgba(168,85,247,0.3), transparent 40%), radial-gradient(circle at 50% 80%, rgba(124,58,237,0.35), transparent 50%); z-index: 0; pointer-events: none; }
+  .wrap { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; }
+  .logo { font-size: 26px; font-weight: 800; background: linear-gradient(90deg, #f3e8ff, #d8b4fe, #f3e8ff); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 1px; text-decoration:none; }
+  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav a { color: #e9d5ff; text-decoration: none; font-size: 15px; font-weight: 500; opacity: 0.9; }
+  nav a.active { opacity: 1; font-weight: 700; }
+  .nav-cta { background: linear-gradient(90deg, #a855f7, #7c3aed); padding: 10px 22px; border-radius: 999px; color: white; font-weight: 600; box-shadow: 0 4px 20px rgba(168,85,247,0.5); text-decoration:none; font-size:14px; }
+  .page-hero { text-align:center; padding: 70px 0 40px; }
+  .page-hero .badge { display: inline-block; padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(216,180,254,0.4); backdrop-filter: blur(10px); font-size: 13px; color: #d8b4fe; margin-bottom: 20px; }
+  .page-hero h1 { font-size: 46px; font-weight: 800; margin-bottom: 16px; background: linear-gradient(90deg, #ffffff, #e9d5ff, #c084fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .page-hero p { font-size: 17px; color: #d8c5f0; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+  .services-list { display: flex; flex-direction: column; gap: 22px; padding: 40px 0 80px; }
+  .svc { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); border: 1px solid rgba(216,180,254,0.25); border-radius: 26px; padding: 36px; display: grid; grid-template-columns: 90px 1fr; gap: 26px; align-items: start; }
+  .svc .icon { width: 68px; height: 68px; border-radius: 18px; background: linear-gradient(135deg, #a855f7, #6d28d9); display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 8px 24px rgba(168,85,247,0.5); }
+  .svc h3 { font-size: 23px; color: #fff; margin-bottom: 10px; }
+  .svc p.desc { font-size: 15px; color: #c9b3e8; line-height: 1.6; margin-bottom: 16px; }
+  .svc .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .svc .tags span { font-size: 12px; background: rgba(216,180,254,0.15); border: 1px solid rgba(216,180,254,0.3); color: #e9d5ff; padding: 6px 14px; border-radius: 999px; }
+  .cta-band { text-align: center; border-radius: 32px; padding: 60px 40px; background: linear-gradient(120deg, rgba(168,85,247,0.35), rgba(124,58,237,0.35)); border: 1px solid rgba(216,180,254,0.35); backdrop-filter: blur(20px); margin-bottom: 70px; }
+  .cta-band h2 { font-size: 30px; font-weight: 800; margin-bottom: 12px; color: #fff; }
+  .cta-band p { color: #e0cffc; margin-bottom: 26px; font-size: 15px; }
+  .btn-primary { background: linear-gradient(90deg, #a855f7, #7c3aed); color: white; padding: 15px 32px; border-radius: 999px; font-weight: 700; font-size: 15px; box-shadow: 0 8px 30px rgba(168,85,247,0.55); border: none; cursor: pointer; text-decoration:none; display:inline-block; }
+  footer { padding: 40px 0 30px; text-align: center; color: #b89ed8; font-size: 13px; }
+  footer .flogo { font-size: 22px; font-weight: 800; color: #f3e8ff; margin-bottom: 12px; }
+  footer nav.fnav { display:flex; justify-content:center; gap:24px; margin: 16px 0; }
+  footer nav.fnav a { color:#d8b4fe; text-decoration:none; font-size:13px; }
+  @media (max-width: 700px) {
+    nav ul { display: none; }
+    .svc { grid-template-columns: 1fr; }
+    .page-hero h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a href="index.html" class="logo">GLITTCH</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Let's Talk</a>
+  </nav>
+
+  <section class="page-hero">
+    <div class="badge">✦ Our Services</div>
+    <h1>Five Skills. One Studio.</h1>
+    <p>Everything a growing brand needs to look good, run well, and reach more people — handled by one team that talks to each other.</p>
+  </section>
+
+  <section class="services-list">
+    <div class="svc">
+      <div class="icon">🎬</div>
+      <div>
+        <h3>Content Creation & Video Editing</h3>
+        <p class="desc">Short-form reels, brand videos, and edited content built to hold attention and drive action on social platforms.</p>
+        <div class="tags"><span>Reels & Shorts</span><span>Brand videos</span><span>Editing & color grade</span><span>Captions & motion text</span></div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="icon">💻</div>
+      <div>
+        <h3>Full Stack Development</h3>
+        <p class="desc">End-to-end websites and web apps — from database and backend logic to a polished, responsive front end.</p>
+        <div class="tags"><span>Websites</span><span>Web apps</span><span>E-commerce</span><span>API integration</span></div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="icon">📈</div>
+      <div>
+        <h3>Google & Meta Ads — Optimization & Strategy</h3>
+        <p class="desc">Campaign setup, audience targeting, creative testing, and ongoing optimization across Google and Meta.</p>
+        <div class="tags"><span>Campaign setup</span><span>Audience targeting</span><span>A/B testing</span><span>Reporting</span></div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="icon">🎨</div>
+      <div>
+        <h3>Posters & Graphic Design</h3>
+        <p class="desc">Event posters, social graphics, and brand collateral designed to be bold, clear, and on-brand.</p>
+        <div class="tags"><span>Event posters</span><span>Social graphics</span><span>Brand kits</span><span>Print-ready design</span></div>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="icon">🤖</div>
+      <div>
+        <h3>AI Automation Tools</h3>
+        <p class="desc">Custom automations and internal tools that connect your apps and cut out repetitive manual work.</p>
+        <div class="tags"><span>Workflow automation</span><span>Chatbots</span><span>Data pipelines</span><span>Custom AI tools</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Not sure which service fits?</h2>
+    <p>Tell us about your project and we'll point you in the right direction.</p>
+    <a href="contact.html" class="btn-primary">Get in Touch →</a>
+  </div>
+
+  <footer>
+    <div class="flogo">GLITTCH</div>
+    <p>Content • Development • Ads • Design • AI Automation</p>
+    <nav class="fnav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p style="margin-top:14px;">© 2026 GLITTCH. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>
